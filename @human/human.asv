@@ -1,0 +1,39 @@
+classdef human
+    %UNTITLED Summary of this class goes here
+    %   Detailed explanation goes here
+    
+    properties
+        Sociability;
+        age;
+        fatality;
+        reproduction;
+        migration;
+        pos;
+        speed;
+        current_village;
+    end
+    
+    methods
+        function obj = human(varargin)
+            switch nargin
+                case 0
+                    obj.sociability = [];
+                    obj.age = [];
+                    obj.fatality = [];
+                    obj.reproduction = [];
+                    obj.migration = [];
+                    obj.current_village = 1;
+                    obj.speed = 0;
+                    obj.pos = [];
+                case 8
+                    obj.sociabili
+        end
+        
+        function outputArg = method1(obj,inputArg)
+            %METHOD1 Summary of this method goes here
+            %   Detailed explanation goes here
+            outputArg = obj.Property1 + inputArg;
+        end
+    end
+end
+
