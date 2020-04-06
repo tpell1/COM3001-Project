@@ -1,1 +1,10 @@
 # COM3001-Project
+## TODO
+### Constructors
+Make it so no params are required/minimal params
+### Methods
+#### Infect
+Use the contagiousness param and agents sociability to infect ce
+#### Socialise
+#### Die
+#### Migrate
