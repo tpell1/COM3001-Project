@@ -11,3 +11,5 @@ Use sociability variable to determine how many users agent socialises with
 Use fatality and age to calculate whether agent should die, fatality should also be modified by disease mortality if user is infect
 #### Migrate
 Use migration_freq param to determine how many users should migrate to different villages
+### Project scripts
+Once methods and constructors are complete we can start to adapt the functions in the main project folder for use in our model.
