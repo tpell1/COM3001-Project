@@ -3,7 +3,7 @@ classdef human
     %   Detailed explanation goes here
     
     properties
-        Sociability;
+        sociability;
         age;
         fatality;
         reproduction;

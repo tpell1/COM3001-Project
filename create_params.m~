@@ -1,0 +1,18 @@
+function create_params
+
+%set up breeding, migration and starvation threshold parameters. These
+%are all completely made up!
+
+%PARAM - structure containing values of all parameters governing agent
+%behaviour for the current simulation
+
+global PARAM
+
+    PARAM.H_SPD=5;         %speed of movement - units per itn (rabbit)
+    PARAM.IH_SPD=1;         %speed of movement - units per itn (fox)
+    PARAM.BR_AGE=20         %age of breeding in years
+    PARAM.H_FATALITY=10 
+    PARAM.
+    PARAM.F_MAXAGE=50;
+    
+    
