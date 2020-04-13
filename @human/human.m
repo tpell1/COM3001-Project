@@ -33,6 +33,16 @@ classdef human
                     obj.speed = PARAM.H_SPD;
                     obj.pos = [];
                     obj.immunity = false;
+                case 1
+                    obj.sociability = PARAM.SOCIABILITY;
+                    obj.age = 0;
+                    obj.fatality = PARAM.MORTALITY;
+                    obj.reproduction = PARAM.BR_AGE;
+                    obj.migration = PARAM.H_MIGRATE_FREQ;
+                    obj.current_village = varargin{1};
+                    obj.speed = PARAM.H_SPD;
+                    obj.pos = [];
+                    obj.immunity = false;
                 case 9
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};

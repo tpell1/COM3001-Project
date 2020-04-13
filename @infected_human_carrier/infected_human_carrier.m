@@ -3,7 +3,7 @@ classdef infected_human_carrier
     %   Detailed explanation goes here
     
     properties
-        Sociability;
+        sociability;
         age;
         fatality;
         reproduction;
@@ -34,7 +34,18 @@ classdef infected_human_carrier
                     obj.pos = [];
                     obj.infected = true;
                     obj.contagiousness = PARAM.D_CONTAGIOUS;
-                case 8
+                case 1
+                    obj.sociability = PARAM.SOCIABILITY;
+                    obj.age = 0;
+                    obj.fatality = PARAM.MORTALITY;
+                    obj.reproduction = PARAM.BR_AGE;
+                    obj.migration = PARAM.H_MIGRATE_FREQ;
+                    obj.current_village = varargin{1};
+                    obj.speed = PARAM.H_SPD;
+                    obj.pos = [];
+                    obj.infected = true;
+                    obj.contagiousness = PARAM.D_CONTAGIOUS;
+                case 10
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};
                     obj.fatality = varargin{3};
