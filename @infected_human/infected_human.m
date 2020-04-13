@@ -14,24 +14,25 @@ classdef infected_human
         infected;
         contagiousness;
     end
-    
+        
     methods  
         % params 
         % Sociability, age, fatality, reproduction, migration,
         % current_village, speed, pos
-        function obj = human(varargin) 
+        function obj = infected_human(varargin) 
+            global PARAM
             switch nargin
                 case 0
-                    obj.sociability = [];
-                    obj.age = [];
-                    obj.fatality = [];
-                    obj.reproduction = [];
-                    obj.migration = [];
+                    obj.sociability = PARAM.SOCIABILITY*PARAM.D_SOCIAL_F;
+                    obj.age = 0;
+                    obj.fatality = (PARAM.MORTALITY*PARAM.D_MORTALITY)+PARAM.MORTALITY;
+                    obj.reproduction = PARAM.BR_AGE;
+                    obj.migration = PARAM.I_MIGRATE_FREQ;
                     obj.current_village = 1;
-                    obj.speed = [];
+                    obj.speed = PARAM.IH_SPD;
                     obj.pos = [];
-                    obj.infected = [];
-                    obj.contagiousness = [];
+                    obj.infected = true;
+                    obj.contagiousness = PARAM.D_CONTAGIOUS;
                 case 8
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};

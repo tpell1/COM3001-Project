@@ -19,18 +19,20 @@ classdef human
         % params 
         % Sociability, age, fatality, reproduction, migration,
         % current_village, speed, pos
-        function obj = human(varargin) 
+        function obj = human(varargin)
+            global PARAM;
+            
             switch nargin
                 case 0
-                    obj.sociability = [];
-                    obj.age = [];
-                    obj.fatality = [];
-                    obj.reproduction = [];
-                    obj.migration = [];
+                    obj.sociability = PARAM.SOCIABILITY;
+                    obj.age = 0;
+                    obj.fatality = PARAM.MORTALITY;
+                    obj.reproduction = PARAM.BR_AGE;
+                    obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = 1;
-                    obj.speed = 0;
+                    obj.speed = PARAM.H_SPD;
                     obj.pos = [];
-                    obj.immunity = [];
+                    obj.immunity = false;
                 case 9
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};
