@@ -1,7 +1,7 @@
 # COM3001-Project
 ## TODO
 ### Constructors
-Make it so no params are required/minimal params
+~~Make it so no params are required/minimal params~~, Implemented
 ### Methods
 #### Infect (For infected agents only)
 Use the contagiousness param to infect agents that the agent socialised with in same village
