@@ -17,34 +17,31 @@ function [agent]=create_agents(nh,ni,nc)
  global ENV_DATA MESSAGES PARAM 
   
 bm_size=ENV_DATA.bm_size;
-hloc=(bm_size-1)*rand(nh,2)+1;      %generate random initial positions for rabbits
-iloc=(bm_size-1)*rand(ni,2)+1;      %generate random initial positions for foxes
-cloc=(bm_size-1)*rand(nc,2)+1;
+hloc=(bm_size-1)*rand(nh,2)+1;      %generate random initial positions for non-infected humans
+iloc=(bm_size-1)*rand(ni,2)+1;      %generate random initial positions for infected humans
+cloc=(bm_size-1)*rand(nc,2)+1;      %generate random initial positions for carrier humans
 
 MESSAGES.pos=[hloc;iloc;cloc];
 
 %generate all non_infected human agents and record their positions in ENV_MAT_R
 for h=1:nh
     pos=hloc(h,:);
-    %create human agents with random ages between 0 and 20 days and random
-    %food levels 20-40
+    %create human agents with random ages between 0 and 20 days
 
     agent{h}=human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,immune);
 end
 
-%generate all fox agents and record their positions in ENV_MAT_F
+%generate all infected human agents and record their positions in ENV_MAT_F
 for i=nh+1:ni+nh
-    pos=floc(i-nh,:);
-    %create fox agents with random ages between 0 and 10 days and random
-    %food levels 20-40
+    pos=iloc(i-nh,:);
+    %create infected human agents with random ages between 0 and 20 days
 
-    agent{f}=infected_human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
+    agent{i}=infected_human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
 end
 
 for c=nh+ni+1:nh+ni+nc
-    pos=floc(i-(nh+ni),:);
-    %create fox agents with random ages between 0 and 10 days and random
-    %food levels 20-40
+    pos=cloc(i-(nh+ni),:);
+    %create human carrier agents with random ages between 0 and 20 days
 
-    agent{f}=infected_human_carrier(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
+    agent{c}=infected_human_carrier(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
 end
