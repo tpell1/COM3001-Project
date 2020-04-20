@@ -13,6 +13,7 @@ global PARAM
     PARAM.BR_AGE=20             %age of breeding in years
     PARAM.D_MORTALITY=0.05      %how deadly pathogen is
     PARAM.MORTALITY=0.02
+    PARAM.N_OF_VILLAGES=4       %Number of villages
     PARAM.SOCIABILITY=0.2       %Sociability
     PARAM.D_SOCIAL_F=0.4        %how much pathogen infects sociability
     PARAM.D_CONTAGIOUS=1/3      %how contagious pathogen is
