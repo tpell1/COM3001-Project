@@ -2,7 +2,7 @@
 ## TODO
 ### CREATE_ scripts
 #### CREATE_ENVIRONMENT
-Contains `ENV_DATA.villages` variable which should create an array of villages using `PARAM.N_OF_VILLAGES` as the size of array and then random distribution of village coords and radi
+Contains `ENV_DATA.villages` variable which should call `create_villages(n)` to create an array of villages using `PARAM.N_OF_VILLAGES` as the size of array and then random distribution of village coords and radi.
 ### Constructors
 ~~Make it so no params are required/minimal params~~ Implemented
 ### Methods

@@ -11,10 +11,10 @@ function create_environment(size)
    %    ENV_DATA.villages - Array containing village coords and radius
    %    (rect)
 
-global ENV_DATA
+global ENV_DATA PARAM
 
 ENV_DATA.shape='square';
 ENV_DATA.units='kilometres';
 ENV_DATA.bm_size=size;
-ENV_DATA.villages=[]; %% TODO
+ENV_DATA.villages=create_villages(PARAM.N_OF_VILLAGES); 
 
