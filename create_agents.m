@@ -17,9 +17,8 @@ function [agent]=create_agents(nh,ni,nc)
  global ENV_DATA MESSAGES PARAM 
   
 bm_size=ENV_DATA.bm_size;
-hloc=(bm_size-1)*rand(nh,2)+1;      %generate random initial positions for non-infected humans
-iloc=(bm_size-1)*rand(ni,2)+1;      %generate random initial positions for infected humans
-cloc=(bm_size-1)*rand(nc,2)+1;      %generate random initial positions for carrier humans
+n_of_agents=nh+ni+nc;
+locs=populate_villages(n_of_agents) %get location of agents in villages
 
 MESSAGES.pos=[hloc;iloc;cloc];
 

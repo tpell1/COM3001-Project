@@ -1,0 +1,11 @@
+function locs = populate_villages(n_of_agents)
+
+GLOBAL PARAM ENV_DATA
+
+locs = zeros(1,n_of_agents);
+
+for i=1:n_of_agents
+    j=mod(i, PARAM.N_OF_VILLAGES);
+    (bm_size-1)*rand(nr,2)+1;
+    locs[i]=[ENV_DATA.villages[0][0]+rand(
+end

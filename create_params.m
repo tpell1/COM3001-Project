@@ -20,5 +20,6 @@ global PARAM
     PARAM.H_MIGRATE_FREQ=0.02   %how often a normal human changes village
     PARAM.I_MIGRATE_FREQ=0.01   %how often an infected human changes village
     PARAM.MAXAGE=50;            %maximum age of human agent
+    PARAM.POP_DENSITY=250       %population density for each village (per km^2)
     
     

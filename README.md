@@ -8,7 +8,7 @@ Currently returns a hardcoded list of four villages, must be changed to create a
 #### create_agents
 Currently spawns agents in a random distribution throughout whole environment, modify this so that it places agents randomly within villages, using radi of village to calculate how many agents can live in a village at a time
 #### populate_villages
-Will use number of agents and params to return an n size array of `[location,village_number]` which the `create_agent` function will be able to use to give agents a position value and a number of the village it is in.
+Will use number of agents and params to return an n size array of `[location,village_number]` which the `create_agent` function will be able to use to give agents a position value and a number of the village it is in. Implementation may be correct but array syntax must be corrected
 ### Constructors
 ~~Make it so no params are required/minimal params~~ Implemented
 ### Methods
