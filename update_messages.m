@@ -53,8 +53,12 @@ for cn=1:temp_n
                 IT_STATS.tot_c(N_IT+1)=IT_STATS,tot_C(N_IT+1)+1;
             end
         else
-            % INFECTED CODE GOES HERE (REMOVE infected healthy human from
-            % list and add infected_human to list
+            % INFECTED CODE GOES HERE (remove infected healthy human from
+            % list and add infected_human to list)
+            MESSAGES.pos(cn,:)=[-1 -1];     %enter dummy position in list
+            MESSAGES.atype(cn)=0;           %set type to dead
+            MESSAGES.dead(cn)=0;            %clear death message
+            MESSAGES.rem(cn)=0;
         end
         nagent{cn}=agent{cn};           %copy object into the new list
         pos=get(agent{cn},'pos');
