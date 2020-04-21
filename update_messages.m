@@ -54,7 +54,9 @@ for cn=1:temp_n
             end
         else
             % INFECTED CODE GOES HERE (remove infected healthy human from
-            % list and add infected_human to list)
+            % list and add infected_human to list) Temporarily using death
+            % procedure instead.
+            
             MESSAGES.pos(cn,:)=[-1 -1];     %enter dummy position in list
             MESSAGES.atype(cn)=0;           %set type to dead
             MESSAGES.dead(cn)=0;            %clear death message
