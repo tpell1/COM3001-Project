@@ -15,7 +15,7 @@ Currently returns a hardcoded list of four villages, must be changed to create a
 ~~Make it so no params are required/minimal params~~ Implemented
 ### Methods
 #### Infect (For infected agents only)
-Use the contagiousness & sociability params to infect agents that the agent socialised with in same village. *Started* (Needs testing and must add part of code on healthy humans behalf to turn a healthy human agent to an infected human agent).
+Use the contagiousness & sociability params to infect agents that the agent socialised with in same village. **(Started)** *Needs testing and must add part of code on healthy humans behalf to turn a healthy human agent to an infected human agent.*
 #### Die
 ~~Use fatality and age to calculate whether agent should die~~ (implemented) ~~fatality should also be modified by disease mortality if user is infected~~ (Implemented by PARAM Creation)
 #### Migrate
