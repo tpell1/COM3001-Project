@@ -12,6 +12,7 @@ classdef human
         speed;
         current_village;
         immunity;
+        infected;
     end
     
     methods
@@ -33,6 +34,7 @@ classdef human
                     obj.speed = PARAM.H_SPD;
                     obj.pos = [];
                     obj.immunity = false;
+                    obj.infected = false;
                 case 1
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = 0;
@@ -43,6 +45,7 @@ classdef human
                     obj.speed = PARAM.H_SPD;
                     obj.pos = [];
                     obj.immunity = false;
+                    obj.infected = false;
                 case 9
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};
@@ -53,6 +56,7 @@ classdef human
                     obj.speed = varargin{7};
                     obj.pos = varargin{8};
                     obj.immunity = varargin{9};
+                    obj.infected = false;
             end
         end
     end

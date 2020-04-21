@@ -22,6 +22,8 @@ switch prop_name
         val=c.current_village;
     case 'immunity'
         val=c.immunity;
+    case 'infected'
+        val=c.infected;
 otherwise 
    error('invalid field name')
 end

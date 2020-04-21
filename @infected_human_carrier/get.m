@@ -2,8 +2,8 @@ function val=get(c,prop_name)
 
 %standard function to allow extraction of memory parameters from rabbit object
 
-switch prop_name 
-        
+switch prop_name
+     
     case 'age'
        val=c.age;
     case 'sociability'
