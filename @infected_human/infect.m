@@ -43,7 +43,7 @@ if isempty(hv)
        pi=infectiousness*MESSAGES.sociability(hv(i));
        if pi>rand
           IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+1;
-          infected+=1;
+          infected=infected+1;
           MESSAGES.infected(hv(i))=1;
        end
    end
