@@ -3,7 +3,7 @@ classdef infected_human
     %   Detailed explanation goes here
     
     properties
-        Sociability;
+        sociability;
         age;
         fatality;
         reproduction;
@@ -36,7 +36,7 @@ classdef infected_human
                 case 1
                     obj.sociability = PARAM.SOCIABILITY*PARAM.D_SOCIAL_F;
                     obj.age = 0;
-                    obj.fatality = (PARAM.MORTALITY*PARAM.D_MORTALITY)+PARAM.MORTALITY;
+                    obj.fatality = PARAM.MORTALITY*(PARAM.D_MORTALITY+1);
                     obj.reproduction = PARAM.BR_AGE;
                     obj.migration = PARAM.I_MIGRATE_FREQ;
                     obj.current_village = varargin{1};
