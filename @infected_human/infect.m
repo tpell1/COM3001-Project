@@ -44,7 +44,7 @@ if isempty(hv)
        if pi>rand
           IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+1;
           infected=infected+1;
-          MESSAGES.infected(hv(i))=1;
+          MESSAGES.rem(hv(i))=1;
        end
    end
 end

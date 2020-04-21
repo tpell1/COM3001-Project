@@ -11,6 +11,8 @@ Currently returns a hardcoded list of four villages, must be changed to create a
 ~~Will use number of agents and params to return an n size array of `[location,village_number]` which the `create_agent` function will be able to use to give agents a position value and a number of the village it is in.~~ Implemented (~~Implementation may be correct but array syntax must be corrected~~, fixed using cell array).
 #### create_messages
 ~~Needs adapting from ecolab version, convert `nr` and `nf` to our agent types for example. Add a village message as well to enable agents to interact with other agents in same village.~~ Village message implemented, others may be required.
+#### update_messages
+Needs adapting from ecolab version, must remove infected healthy human from list and add infected_human to list, *Comments in file where code should go.*
 ### Constructors
 ~~Make it so no params are required/minimal params~~ Implemented
 ### Methods
