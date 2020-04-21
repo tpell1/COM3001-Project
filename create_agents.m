@@ -16,15 +16,15 @@ function [agent]=create_agents(nh,ni,nc)
  
  global ENV_DATA MESSAGES PARAM 
   
-bm_size=ENV_DATA.bm_size;
 n_of_agents=nh+ni+nc;
-locs=populate_villages(n_of_agents) %get location of agents in villages
+locs=populate_villages(n_of_agents); %get location of agents in villages
 
-MESSAGES.pos=[hloc;iloc;cloc];
+locations=locs{:, 2}; %change to get only coords dimension of object
+MESSAGES.pos=locations;
 
 %generate all non_infected human agents and record their positions in ENV_MAT_R
 for h=1:nh
-    pos=hloc(h,:);
+    pos=locations(h,:);
     %create human agents with random ages between 0 and 20 days
 
     agent{h}=human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,immune);
@@ -32,14 +32,14 @@ end
 
 %generate all infected human agents and record their positions in ENV_MAT_F
 for i=nh+1:ni+nh
-    pos=iloc(i-nh,:);
+    pos=locations(i,:);
     %create infected human agents with random ages between 0 and 20 days
 
     agent{i}=infected_human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
 end
 
 for c=nh+ni+1:nh+ni+nc
-    pos=cloc(i-(nh+ni),:);
+    pos=locations(i,:);
     %create human carrier agents with random ages between 0 and 20 days
 
     agent{c}=infected_human_carrier(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);

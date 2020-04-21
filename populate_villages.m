@@ -1,8 +1,8 @@
 function locs = populate_villages(n_of_agents)
 
-GLOBAL PARAM ENV_DATA
+global PARAM ENV_DATA
 
-locs = zeros(1,n_of_agents);
+locs = cell(n_of_agents, 2);
 
 for i=1:n_of_agents
     j=mod(i, PARAM.N_OF_VILLAGES);
@@ -11,7 +11,10 @@ for i=1:n_of_agents
     % to get a random location within village j
     % need to sort out array syntax ********
     
-    x = ENV_DATA.villages[i][0][0]+(ENV_DATA.villages[i][1]*randi(1);
-    y = ENV_DATA.villages[i][0][1]+(ENV_DATA.villages[i][1]*randi(1);
-    locs[i]=[j, [x],[y]]];
+    radius = ENV_DATA.villages{j,2};
+    
+    x = ENV_DATA.villages{j,1}(1)+(randi(radius));
+    y = ENV_DATA.villages{j,1}(2)+(randi(radius));
+    
+    locs(i, :)={j, [x,y]};
 end
