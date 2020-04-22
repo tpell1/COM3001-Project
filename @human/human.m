@@ -35,7 +35,7 @@ classdef human
                     obj.pos = [];
                     obj.immunity = false;
                     obj.infected = false;
-                case 1
+                case 2
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = 0;
                     obj.fatality = PARAM.MORTALITY;
@@ -43,7 +43,7 @@ classdef human
                     obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = varargin{1};
                     obj.speed = PARAM.H_SPD;
-                    obj.pos = [];
+                    obj.pos = varargin{2};
                     obj.immunity = false;
                     obj.infected = false;
                 case 9

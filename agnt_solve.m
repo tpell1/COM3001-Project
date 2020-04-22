@@ -8,17 +8,21 @@ prev_n = n;
 for cn=1:n
     %==== TODO:: UPDATE AGENT LOOP ======>>
     curr=agent{cn};
-    if isa(curr,'infected_human')|isa(curr, 'infected_human_carrier')
+    if isa(curr,'infected_human')%
         [curr,killd]=die(curr,cn);
         if killd==0
-            [curr,infected,nagents]=infect(curr,cn);
+            res=infect(curr,cn);
+            curr=res{1};
+            infected=res{2};
+            nagents=res{3};
             agent{cn}=curr;
             for i=1:infected
                 n_new=n_new+1;
-                agent{n+n_new}=nagents(i);
+                nagent=nagents{i};
+                agent{n+n_new}=infected_human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
             end
         end
-    elseif isa(curr,'human')
+    elseif isa(curr,'human')|isa(curr, 'infected_human_carrier')
         die(curr,cn);
     end
     agent{cn}=curr;

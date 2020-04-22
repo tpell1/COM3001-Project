@@ -33,7 +33,7 @@ classdef infected_human
                     obj.pos = [];
                     obj.infected = true;
                     obj.contagiousness = PARAM.D_CONTAGIOUS;
-                case 1
+                case 2
                     obj.sociability = PARAM.SOCIABILITY*PARAM.D_SOCIAL_F;
                     obj.age = 0;
                     obj.fatality = PARAM.MORTALITY*(PARAM.D_MORTALITY+1);
@@ -41,7 +41,7 @@ classdef infected_human
                     obj.migration = PARAM.I_MIGRATE_FREQ;
                     obj.current_village = varargin{1};
                     obj.speed = PARAM.IH_SPD;
-                    obj.pos = [];
+                    obj.pos = varargin{2};
                     obj.infected = true;
                     obj.contagiousness = PARAM.D_CONTAGIOUS;
                 case 3

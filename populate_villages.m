@@ -1,4 +1,4 @@
-function locs = populate_villages(n_of_agents, villages)
+function locs = populate_villages(n_of_agents)
 
 global PARAM ENV_DATA
 

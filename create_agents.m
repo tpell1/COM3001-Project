@@ -20,27 +20,36 @@ n_of_agents=nh+ni+nc;
 locs=populate_villages(n_of_agents); %get location of agents in villages
 
 locations=locs(:, 2); %change to get only coords dimension of object
-MESSAGES.pos=locations;
+villages=locs(:, 1);  %get list of villages for each agent
+
+locat=zeros(length(locs),2);
+
+for i=1:length(locs)
+   locat(i, :)=locations{i};
+end
+MESSAGES.pos=locat;
 
 %generate all non_infected human agents and record their positions in ENV_MAT_R
 for h=1:nh
-    pos=locations{h};
-    %create human agents with random ages between 0 and 20 days
-
-    agent{h}=human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,immune);
+    pos=locat(h, :);
+    vill=villages{h};
+    
+    agent{h}=human(vill,pos);
 end
 
 %generate all infected human agents and record their positions in ENV_MAT_F
 for i=nh+1:ni+nh
-    pos=locations{i};
+    pos=locat(h, :);
+    vill=villages{i};
     %create infected human agents with random ages between 0 and 20 days
 
-    agent{i}=infected_human(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
+    agent{i}=infected_human(vill,pos);
 end
 
 for c=nh+ni+1:nh+ni+nc
-    pos=locations{i};
+    pos=locat(h, :);
+    vill=villages{c};
     %create human carrier agents with random ages between 0 and 20 days
 
-    agent{c}=infected_human_carrier(sociability,age,fatality,reproduction,migration,current_village,speed,pos,infected,contagiousness);
+    agent{i}=infected_human_carrier(vill,pos);
 end

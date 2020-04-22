@@ -29,34 +29,29 @@ function cellarray=infect(agt,cn)
 global  IT_STATS N_IT MESSAGES
    
 cvill=agt.current_village;          %current agent village
-infectiousness=0.1*((agt.contagiousness)*agt.sociability);
+infectiousness=(1/agt.contagiousness)*agt.sociability
 
 infected=0;
 
 typ=MESSAGES.atype;                                         %extract types of all agents
-rem=MESSAGES.rem;
-hvill=MESSAGES.village;   
-hb=find(typ==1&rem==0&hvill==cvill);                                            %indices of all healthy humans
-                        %extract villages of all healthy humans
-
+hb=find(typ==1);                                            %indices of all healthy humans
+hvillage=MESSAGES.village(hb);                           %extract villages of all healthy humans
+hv=find(hvillage==cvill);
 nagents={};
-j=0;
-if ~isempty(hb)
-   for i=1:length(hb)
-       pi=infectiousness*MESSAGES.sociability(hb(i));
-       %if N_IT > 5
-       %   N_IT; 
-       %end
-       if pi>rand
-          j=j+1;
+
+if ~isempty(hv)
+   for i=1:length(hv)
+       pi=infectiousness*MESSAGES.sociability(hv(i));
+       rnd=0.3
+       if pi>rnd
           infected=infected+1;
-          MESSAGES.rem(hb(i))=1;
-          nagents{j}=[cvill, MESSAGES.age(hb(i)), MESSAGES.pos(hb(i),:)];
+          MESSAGES.rem(hv(i))=1;
+          nagents{i}=[cvill, MESSAGES.age(hv(i)), MESSAGES.pos(hv(i),:)];
        end
    end
 end
 IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+infected;
-IT_STATS.div_i(N_IT+1)=IT_STATS.div_i(N_IT+1)+infected;
+
 cellarray = {agt,infected,nagents};
 
 

@@ -33,7 +33,7 @@ function create_messages(nh,ni,nc,agent)
         MESSAGES.dead(an)=0;
         MESSAGES.rem(an)=0;
         MESSAGES.age(an)=get(agent{an},'age');
-     elseif isa(agent{an},'carrier_human')
+     elseif isa(agent{an},'infected_human_carrier')
         MESSAGES.atype(an)=3; 
         MESSAGES.pos(an,:)=get(agent{an},'pos');
         MESSAGES.village(an)=get(agent{an},'current_village');

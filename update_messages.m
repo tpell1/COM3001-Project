@@ -33,27 +33,32 @@ for cn=1:temp_n
         dead=1;
     elseif cn<=prev_n                   %agent is not new, therefore it might have died
         dead=MESSAGES.dead(cn);         %will be one for agents that have died, zero otherwise
-        infected=MESSAGES.rem(cn); %will be one for agents that are infected, zero otherwise
+        infected=MESSAGES.rem(cn);      %will be one for agents that are infected, zero otherwise
     else 
         dead=0;
     end
     if dead==0                          %if agent is not dead
         if infected==0
             nagent{cn}=agent{cn};           %copy object into the new list
-            MESSAGES.pos(an,:)=get(agent{an},'pos');
-            MESSAGES.village(an)=get(agent{an},'current_village');
-            MESSAGES.sociability(an)=get(agent{an},'sociability');
-            MESSAGES.rem(an)=0;
-            MESSAGES.dead(an)=0;                   
+            MESSAGES.pos(cn,:)=get(agent{cn},'pos');
+            MESSAGES.village(cn)=get(agent{cn},'current_village');
+            MESSAGES.sociability(cn)=get(agent{cn},'sociability');
+            MESSAGES.rem(cn)=0;
+            MESSAGES.dead(cn)=0;                   
             if isa(agent{cn},'human')
-                MESSAGES.atype(an)=1;
+                MESSAGES.atype(cn)=1;
                 IT_STATS.tot_h(N_IT+1)=IT_STATS.tot_h(N_IT+1)+1;
             elseif isa(agent{cn},'infected_human')
                 MESSAGES.atype(cn)=2;
                 IT_STATS.tot_i(N_IT+1)=IT_STATS.tot_i(N_IT+1)+1;
             elseif isa(agent{cn},'infected_human_carrier')
-                IT_STATS.tot_c(N_IT+1)=IT_STATS,tot_C(N_IT+1)+1;
+                MESSAGES.atype(cn)=3;
+                IT_STATS.tot_c(N_IT+1)=IT_STATS.tot_c(N_IT+1)+1;
             end
+            nagent{cn}=agent{cn};           %copy object into the new list
+            pos=get(agent{cn},'pos');
+            MESSAGES.pos(cn,:)=pos;                    
+            nn=nn+1;
         else
             % INFECTED CODE GOES HERE (remove infected healthy human from
             % list and add infected_human to list) Temporarily using death
@@ -64,11 +69,6 @@ for cn=1:temp_n
             MESSAGES.dead(cn)=0;            %clear death message
             MESSAGES.rem(cn)=0;
         end
-        nagent{cn}=agent{cn};           %copy object into the new list
-        pos=get(agent{cn},'pos');
-        MESSAGES.pos(cn,:)=pos;                    
-        MESSAGES.dead(cn)=0;           %clear death message
-        nn=nn+1;
     else                                %agent has died
         MESSAGES.pos(cn,:)=[-1 -1];     %enter dummy position in list
         MESSAGES.atype(cn)=0;           %set type to dead
@@ -76,4 +76,3 @@ for cn=1:temp_n
     end
 end
 IT_STATS.tot(N_IT+1)=nn;                %update total agent number
-IT_STATS.tfood(N_IT+1)=sum(sum(ENV_DATA.food));   %total food remaining

@@ -26,7 +26,7 @@ function model(size,nh,ni,nc,nsteps,fmode,outImages)
     close all
 
     global N_IT IT_STATS ENV_DATA CONTROL_DATA
-
+    fmode=true
     if nargin == 4
         fmode=true;
         outImages=false;
@@ -60,14 +60,14 @@ function model(size,nh,ni,nc,nsteps,fmode,outImages)
                end
            end
             if IT_STATS.tot_h(n_it) == 0             %fastmode convergence - all healthy humans died or are infected
-                disp('Fast mode convergence criteria satisfied - no rabbits left alive! > ')
+                disp('Fast mode convergence criteria satisfied - no healthy humans alive! > ')
                 break
             end  
-            if IT_STATS.tot_f(n_it) == 0             %fastmode convergence - all infected humans have died, now humans can't be infected
-                disp('Fast mode convergence criteria satisfied - no foxes left alive ! > ')
+            if IT_STATS.tot_i(n_it) == 0             %fastmode convergence - all infected humans have died, now humans can't be infected
+                disp('Fast mode convergence criteria satisfied - no infected humans left alive ! > ')
                 break
             end
         end
     end
-eval(['save results_nr_' num2str(nr) '_nf_' num2str(nf) '.mat IT_STATS ENV_DATA' ]);
+eval(['save results_nr_' num2str(nh) '_nf_' num2str(ni) '.mat IT_STATS ENV_DATA' ]);
 clear global
