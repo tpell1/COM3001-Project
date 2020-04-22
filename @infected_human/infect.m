@@ -29,7 +29,7 @@ function cellarray=infect(agt,cn)
 global  IT_STATS N_IT MESSAGES
    
 cvill=agt.current_village;          %current agent village
-infectiousness=0.1*((agt.contagiousness)*agt.sociability);
+infectiousness=0.0005*((agt.contagiousness)*agt.sociability);
 
 infected=0;
 

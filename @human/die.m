@@ -22,16 +22,11 @@ global PARAM IT_STATS N_IT MESSAGES
    %    in the current iteration
 
 klld=0;
-mortality=agt.fatality;             %get current agent food level
-age=agt.age;                %get current agent age
+mortality=agt.fatality;            %get current agent food level
+rnd=rand;
 
-
-rng(0,'twister')
-r = 0.2*rand(1,1);
-
-
-if mortality*(age)+r>=1             %if food level < threshold and age > max age then agent dies
-    IT_STATS.died_r(N_IT+1)=IT_STATS.died_r(N_IT+1)+1;  %update statistics
+if mortality>rnd             %if food level < threshold and age > max age then agent dies
+    IT_STATS.died_i(N_IT+1)=IT_STATS.died_i(N_IT+1)+1;  %update statistics
     MESSAGES.dead(cn)=1;                %update message list
     klld=1;
 end
