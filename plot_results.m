@@ -23,6 +23,10 @@ function plot_results(agent,nsteps,fmode,outImages)
     %write results to the screen
     nh=IT_STATS.tot_h;
     ni=IT_STATS.tot_i;
+    nid=zeros(length(N_IT));
+    for i=1:N_IT
+        nid(i)=sum(IT_STATS.died_i(1:i));
+    end
     nc=IT_STATS.tot_c;
     disp(strcat('Iteration = ',num2str(N_IT)))
     disp(strcat('No. new infections = ',num2str(IT_STATS.div_i(N_IT+1))))
@@ -53,8 +57,11 @@ function plot_results(agent,nsteps,fmode,outImages)
         subplot(3,1,2),plot((1:N_IT+1),ni(1:N_IT+1),col{2});
         subplot(3,1,2),axis([0 nsteps 0 1.1*(max(ni)+max(nc))]);
         subplot(3,1,3),cla
+        subplot(3,1,3),plot((1:N_IT),nid,col{1});
+        subplot(3,1,3),axis([0 nsteps 0 1.1*(max(ni)+max(nh)+max(nc))]);
         subplot(3,1,1),title('No. healthy humans');
         subplot(3,1,2),title('No. infected humans');
+        subplot(3,1,3),title('No. infected deaths');
         drawnow
 
         %create plot of agent locations. 

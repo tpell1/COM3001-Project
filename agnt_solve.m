@@ -27,8 +27,20 @@ for cn=1:n
         migrate_human(curr,cn);
         die(curr,cn);
     elseif isa(curr, 'infected_human_carrier')
-        migrate_carrier(curr,cn);
-        die(curr,cn);
+        [curr,killd]=die(curr,cn);
+        [curr,cn]=migrate_carrier(curr,cn);
+        if killd==0
+            res=infect(curr,cn);
+            curr=res{1};
+            infected=res{2};
+            nagents=res{3};
+            agent{cn}=curr;
+            for i=1:infected
+                n_new=n_new+1;
+                nagent=nagents{i};
+                agent{n+n_new}=infected_human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+            end
+        end
     end
     agent{cn}=curr;
 end
