@@ -17,8 +17,8 @@ function initialise_results(nh,ni,nc,nsteps)
                 'tot',[zeros(1,nsteps+1)],...				%total no. agents in model per iteration
                 'tot_h',[zeros(1,nsteps+1)],...             % total no. healthy humans
                 'tot_i',[zeros(1,nsteps+1)],...             % total no. infected humans
-                'tot_c',[zeros(1,nsteps+1)]);               % total no. carriers
-            
+                'tot_c',[zeros(1,nsteps+1)],...               % total no. carriers
+                'tot_cured',[zeros(1,nsteps+1)]);
  IT_STATS.tot(1)=nh+ni+nc;
  IT_STATS.tot_h(1)=nh;
  IT_STATS.tot_i(1)=ni;

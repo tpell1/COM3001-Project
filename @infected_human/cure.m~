@@ -35,16 +35,23 @@ if p_of_cure>randi(100)
     cured=1;
     if (length(MESSAGES.age)<cn)
         cn
-    elseif(length(MESSAGES.pos(
-    nagents=[cvill, MESSAGES.age(cn), MESSAGES.pos(cn, :)];
+    elseif(length(MESSAGES.pos)<cn)
+        cn
+    elseif(cvill==0)
+        cvill
+    end
+    if MESSAGES.village(cn)==0
+        MESSAGES
+    end
+    nagents=[MESSAGES.village(cn), MESSAGES.age(cn), MESSAGES.pos(cn, :)];
     MESSAGES.rem(cn)=1;
-
+    IT_STATS.tot_cured(N_IT+1)=IT_STATS.tot_cured(N_IT+1)+1;
+    IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)-1;
 else
     nagents=[];
     cured=0;
 end
 
-IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)-1;
 cellarray = {agt,cured,nagents};
 
 

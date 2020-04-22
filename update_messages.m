@@ -29,6 +29,9 @@ global MESSAGES IT_STATS N_IT ENV_DATA
 nagent=cell(1,temp_n);                  %initialise list for surviving agents
 nn=0;                                   %tracks number of surviving agents
 for cn=1:temp_n
+    if get(agent{cn},'current_village')==[]|get(agent{cn},'current_village')==0
+       MESSAGES 
+    end
     if isempty(agent{cn})               %agent died in a previous iteration (not the current one)
         dead=1;
     elseif cn<=prev_n                   %agent is not new, therefore it might have died
@@ -41,6 +44,7 @@ for cn=1:temp_n
         if infected==0
             nagent{cn}=agent{cn};           %copy object into the new list
             MESSAGES.pos(cn,:)=get(agent{cn},'pos');
+            
             MESSAGES.village(cn)=get(agent{cn},'current_village');
             MESSAGES.sociability(cn)=get(agent{cn},'sociability');
             MESSAGES.rem(cn)=0;

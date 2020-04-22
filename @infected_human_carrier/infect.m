@@ -36,7 +36,7 @@ infected=0;
 typ=MESSAGES.atype;                                         %extract types of all agents
 rem=MESSAGES.rem;
 hvill=MESSAGES.village;   
-hb=find(typ==1&rem==0&hvill==cvill);                                            %indices of all healthy humans
+hb=find(typ(1:length(hvill))==1&rem(1:length(hvill))==0&hvill==cvill);                                            %indices of all healthy humans
                         %extract villages of all healthy humans
 
 nagents={};
@@ -51,6 +51,9 @@ if ~isempty(hb)
           j=j+1;
           infected=infected+1;
           MESSAGES.rem(hb(i))=1;
+          if cvill==0
+              cvill
+          end
           nagents{j}=[cvill, MESSAGES.age(hb(i)), MESSAGES.pos(hb(i),:)];
        end
    end

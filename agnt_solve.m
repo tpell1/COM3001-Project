@@ -18,6 +18,9 @@ for cn=1:n
             if cured==1
                 nagent=rslt{3};
                 n_new=n_new+1;
+                if nagent(1)==0
+                   nagent 
+                end
                 agent{n+n_new}=human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
             else
                 res=infect(curr,cn);

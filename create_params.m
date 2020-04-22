@@ -13,7 +13,7 @@ global PARAM
     PARAM.D_MORTALITY=30;      %how deadly pathogen is
     PARAM.MORTALITY=0.002;
     PARAM.BR_AGE=30;
-    PARAM.IMMUNE_STRENGTH=10;
+    PARAM.IMMUNE_STRENGTH=5;
     PARAM.N_OF_VILLAGES=4;       %Number of villages
     PARAM.SOCIABILITY=5;         %Sociability
     PARAM.D_SOCIAL_F=0.33;        %how much pathogen infects sociability
