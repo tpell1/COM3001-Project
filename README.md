@@ -1,6 +1,12 @@
 # COM3001-Project
 ## TODO
-### CREATE_ scripts
+### non-class scripts
+#### model
+~~Adapt from ecolab.m~~ Implemented.
+#### plot_results
+Adapt from ecolab, convert rabbits and foxes to humans and infecteds
+#### initialise_results
+Initialise results
 #### create_environment
 ~~Contains `ENV_DATA.villages` variable which should call `create_villages(n)` to create an array of villages using `PARAM.N_OF_VILLAGES` as the size of array and then random distribution of village coords and radi.~~ Implemented (for complete implementation: finish create_villages, create_agents, populate_villages).
 #### create_villages
