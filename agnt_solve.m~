@@ -22,6 +22,7 @@ for cn=1:n
         die(curr,cn);
     end
     agent{cn}=curr;
+
 end
 
 temp_n=n+n_new; %new agent number (before accounting for agent deaths)

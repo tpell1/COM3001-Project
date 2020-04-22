@@ -1,4 +1,4 @@
-function [agt,infected]=infect(agt,cn)
+function [agt,infected,nagents]=infect(agt,cn)
 
 %eating function for class FOX
 %agt=fox object
@@ -35,19 +35,22 @@ infected=0;
 
 typ=MESSAGES.atype;                                         %extract types of all agents
 hb=find(typ==1);                                            %indices of all healthy humans
-hvillage=MESSAGES.village(hb, :)                            %extract villages of all healthy humans
+hvillage=MESSAGES.village(hb, :);                           %extract villages of all healthy humans
 hv=find(hvillage==cvill);
+nagents=array(length(hv));
 
 if isempty(hv)
    for i=1:length(hv)
        pi=infectiousness*MESSAGES.sociability(hv(i));
        if pi>rand
-          IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+1;
           infected=infected+1;
           MESSAGES.rem(hv(i))=1;
+          nagents(i)=infected_human(cvill, MESSAGES.age(hv(i)), MESSAGES.pos(hv(i)));
        end
    end
 end
+IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+infected;
+
 
 
    

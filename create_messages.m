@@ -23,7 +23,8 @@ function create_messages(nh,ni,nc,agent)
         MESSAGES.village(an)=get(agent{an},'current_village');
         MESSAGES.sociability(an)=get(agent{an},'sociability');
         MESSAGES.dead(an)=0;
-        MESSAGES.infected(an)=0;
+        MESSAGES.rem(an)=0;
+        MESSAGES.age(an)=get(agent{an},'age');
      elseif isa(agent{an},'infected_human')
         MESSAGES.atype(an)=2;
         MESSAGES.pos(an,:)=get(agent{an},'pos');
@@ -31,6 +32,7 @@ function create_messages(nh,ni,nc,agent)
         MESSAGES.sociability(an)=get(agent{an},'sociability');
         MESSAGES.dead(an)=0;
         MESSAGES.rem(an)=0;
+        MESSAGES.age(an)=get(agent{an},'age');
      elseif isa(agent{an},'carrier_human')
         MESSAGES.atype(an)=3; 
         MESSAGES.pos(an,:)=get(agent{an},'pos');
@@ -38,10 +40,12 @@ function create_messages(nh,ni,nc,agent)
         MESSAGES.sociability(an)=get(agent{an},'sociability');
         MESSAGES.dead(an)=0;
         MESSAGES.rem(an)=0;
+        MESSAGES.age(an)=get(agent{an},'age');
      else
         MESSAGES.atype(an)=0;
         MESSAGES.pos(an,:)=[-1 -1];
-        MES
+        MESSAGES.dead(an)=0;
+        MESSAGES.rem(an)=0;
      end
      
  end

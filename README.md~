@@ -14,7 +14,7 @@ Currently returns a hardcoded list of four villages, must be changed to create a
 #### update_messages
 Needs adapting from ecolab version, must remove infected healthy human from list and add infected_human to list, *May be implemented, will check upon completion of rest.*
 #### agnt_solve
-~~Needs adapting from ecolab version, must run infect function if infected agents still alive at beginning of turn. For non_infected agents check if still alive during turn.~~ Implemented (as long as infect function is correct and valid)
+~~Needs adapting from ecolab version, must run infect function if infected agents still alive at beginning of turn. For non_infected agents check if still alive during turn.~~ Implemented (as long as infect function is correct and
 ### Constructors
 ~~Make it so no params are required/minimal params~~ Implemented
 ### Methods
