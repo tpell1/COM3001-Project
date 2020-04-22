@@ -44,7 +44,8 @@ for cn=1:temp_n
             MESSAGES.village(cn)=get(agent{cn},'current_village');
             MESSAGES.sociability(cn)=get(agent{cn},'sociability');
             MESSAGES.rem(cn)=0;
-            MESSAGES.dead(cn)=0;                   
+            MESSAGES.dead(cn)=0;  
+            MESSAGES.age(cn)=get(agent{cn},'age');
             if isa(agent{cn},'human')
                 MESSAGES.atype(cn)=1;
                 IT_STATS.tot_h(N_IT+1)=IT_STATS.tot_h(N_IT+1)+1;

@@ -88,6 +88,9 @@ function plot_results(agent,nsteps,fmode,outImages)
             if typ(cn)>0                                %only plot live agents
                 pos=get(agent{cn},'pos');               %extract current position    
                 if isa(agent{cn},'human')              %choose plot colour depending on agent type
+                    if length(pos)<2
+                       pos 
+                    end
                     ro=plot(pos(1),pos(2),'r*');
                 else   
                     fo=plot(pos(1),pos(2),'b.'); 

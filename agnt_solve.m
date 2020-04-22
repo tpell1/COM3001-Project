@@ -12,15 +12,24 @@ for cn=1:n
         [curr,killd]=die(curr,cn);
         [curr,cn]=migrate(curr,cn);
         if killd==0
-            res=infect(curr,cn);
-            curr=res{1};
-            infected=res{2};
-            nagents=res{3};
-            agent{cn}=curr;
-            for i=1:infected
+            rslt=cure(curr,cn);
+            curr=rslt{1};
+            cured=rslt{2};
+            if cured==1
+                nagent=rslt{3};
                 n_new=n_new+1;
-                nagent=nagents{i};
-                agent{n+n_new}=infected_human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+                agent{n+n_new}=human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+            else
+                res=infect(curr,cn);
+                curr=res{1};
+                infected=res{2};
+                nagents=res{3};
+                agent{cn}=curr;
+                for i=1:infected
+                    n_new=n_new+1;
+                    nagent=nagents{i};
+                    agent{n+n_new}=infected_human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+                end
             end
         end
     elseif isa(curr,'human')

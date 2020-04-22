@@ -13,6 +13,7 @@ classdef infected_human_carrier
         current_village;
         infected;
         contagiousness;
+        p_of_cure;
     end
     
     methods  
@@ -57,6 +58,7 @@ classdef infected_human_carrier
                     obj.infected = varargin{9};
                     obj.contagiousness = varargin{10};
             end
+            obj.p_of_cure=PARAM.IMMUNE_STRENGTH;
         end
     end
 end
