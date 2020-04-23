@@ -39,7 +39,7 @@ function model(size,nh,ni,nc,nsteps,fmode,outImages)
     create_control;                     %sets up the parameters to control fmode (speed up the code during experimental testing
     create_params;                      %sets the parameters for this simulation
     create_environment(size);           %creates environment data structure, given an environment size
-    random_selection(1);                %randomises random number sequence (NOT agent order). If input=0, then simulation should be identical to previous for same initial values
+    random_selection(0);                %randomises random number sequence (NOT agent order). If input=0, then simulation should be identical to previous for same initial values
     [agent]=create_agents(nh,ni,nc);       %create nr rabbit and nf fox agents and places them in a cell array called 'agents'
     create_messages(nh,ni,nc,agent);       %sets up the initial message lists
     initialise_results(nh,ni,nc,nsteps);   %initilaises structure for storing results

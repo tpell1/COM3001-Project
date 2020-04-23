@@ -4,16 +4,16 @@ In real life, parasites are spread by close proximity, usually social, encounter
 The spread of a virus can be modelled using an ABM. By studying a host’s natural behaviour and replicating this behaviour in a simulation, it is possible to forecast the spread of the virus, and study any emergent behaviours that come of the simulation. 
 
 ### Parameters
-D_MORTALITY=30;      %how deadly pathogen is . 
-MORTALITY=0.005;      %how likely a healthy agent is to die on each iteration . 
-IMMUNE_STRENGTH=0;    %How likely an infected agent is to be cured (out of 100).  
-N_OF_VILLAGES=1;       %Number of villages  
-SOCIABILITY=5;         %Sociability . 
-P_OF_CARRIER=0.3;     %How likely a newly infected agent will be asymptomatic . 
-D_SOCIAL_F=0.1;        %how much pathogen infects sociability . 
-D_CONTAGIOUS=0.05;      %how contagious pathogen is . 
-H_MIGRATE_FREQ=0.1;   %how often a normal human changes village . 
-I_MIGRATE_FREQ=0.05;   %how often an infected human changes .  
+* `D_MORTALITY=30` - How deadly the pathogen is.    
+* `MORTALITY=0.005` - How likely a healthy agent is to die on each iteration. 
+* `IMMUNE_STRENGTH=0` - How likely an infected agent is to be cured (out of 100).  
+* `N_OF_VILLAGES=1` - The number of villages in the model.  
+* `SOCIABILITY=5` - How sociable a healthy agent is. 
+* `P_OF_CARRIER=0.3` - sHow likely a newly infected agent will be asymptomatic. 
+* `D_SOCIAL_F=0.1` - How much being sympotmatic infects sociability. 
+* `D_CONTAGIOUS=0.05` - How contagious the pathogen is. 
+* `H_MIGRATE_FREQ=0.1` - How often a normal human changes village. 
+* `I_MIGRATE_FREQ=0.05` - How often an infected human changes village.  
 
 ## Usage of model
 ### Basic usage
@@ -30,3 +30,7 @@ It can be set when starting the model by giving an extra argument: `model(size,n
 #### Output images
 This determines whether the model outputs images of the experiment results, if on the simulation is much smaller.
 It can be set by giving an extra argument as well as fast mode: `model(size,nh,ni,nc,nsteps,fmode,outImages)`
+### Repeatability
+To ensure repeatability the model uses the same seed for the random number generator each time. To create a new seed upon start of simulation, you should change the `random_selecton(0)` line in `model.m` to `random_selection(1)`, this will prevent the model from using the previous seed and will create a new one.
+### Changing the parameters
+The parameters can be found in `create_params.m`, values will affect how the results of the simulation in different ways.
