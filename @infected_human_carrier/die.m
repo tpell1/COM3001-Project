@@ -12,6 +12,8 @@ rnd=rand;
 
 if mortality>rnd             
     IT_STATS.died_i(N_IT+1)=IT_STATS.died_i(N_IT+1)+1;  %update statistics
+    IT_STATS.tot_h(N_IT+1)=IT_STATS.tot_h(N_IT+1)+1;
+
     MESSAGES.dead(cn)=1;                %update message list
     klld=1;
 end

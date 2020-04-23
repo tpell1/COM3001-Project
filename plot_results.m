@@ -32,6 +32,7 @@ function plot_results(agent,nsteps,fmode,outImages)
     disp(strcat('No. agents migrating = ',num2str(IT_STATS.mig(N_IT+1))))
     disp(strcat('No. healthy humans dying = ',num2str(IT_STATS.died_h(N_IT+1))))
     disp(strcat('No. infected humans dying = ',num2str(IT_STATS.died_i(N_IT+1))))
+    disp(strcat('No. infected humans cured = ',num2str(IT_STATS.tot_cured(N_IT+1))))
 
     %plot line graphs of agent numbers and remaining food
     if (fmode==false) || (N_IT==nsteps) || ((fmode==true) && (rem(N_IT , CONTROL_DATA.fmode_display_every)==0))
