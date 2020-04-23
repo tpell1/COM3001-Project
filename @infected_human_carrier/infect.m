@@ -26,7 +26,7 @@ function cellarray=infect(agt,cn)
    %    in the current iteration
    
 
-global  IT_STATS N_IT MESSAGES
+global  PARAM IT_STATS N_IT MESSAGES
    
 cvill=agt.current_village;          %current agent village
 infectiousness=0.0005*((agt.contagiousness)*agt.sociability);
@@ -44,9 +44,6 @@ j=0;
 if ~isempty(hb)
    for i=1:length(hb)
        pi=infectiousness*MESSAGES.sociability(hb(i));
-       %if N_IT > 5
-       %   N_IT; 
-       %end
        if pi>rand
           j=j+1;
           infected=infected+1;
@@ -54,7 +51,12 @@ if ~isempty(hb)
           if cvill==0
               cvill
           end
-          nagents{j}=[cvill, MESSAGES.age(hb(i)), MESSAGES.pos(hb(i),:)];
+          if rand<PARAM.P_OF_CARRIER
+              carrier=1
+          else
+              carrier=0
+          end
+          nagents{j}=[cvill, MESSAGES.age(hb(i)), MESSAGES.pos(hb(i),:),carrier];
        end
    end
 end

@@ -6,10 +6,8 @@ classdef human
         sociability;
         age;
         fatality;
-        reproduction;
         migration;
         pos;
-        speed;
         current_village;
         immunity;
         infected;
@@ -28,10 +26,8 @@ classdef human
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = 0;
                     obj.fatality = PARAM.MORTALITY;
-                    obj.reproduction = PARAM.BR_AGE;
                     obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = 1;
-                    obj.speed = PARAM.H_SPD;
                     obj.pos = [];
                     obj.immunity = false;
                     obj.infected = false;
@@ -39,10 +35,8 @@ classdef human
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = 0;
                     obj.fatality = PARAM.MORTALITY;
-                    obj.reproduction = PARAM.BR_AGE;
                     obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = varargin{1};
-                    obj.speed = PARAM.H_SPD;
                     obj.pos = varargin{2};
                     obj.immunity = false;
                     obj.infected = false;
@@ -50,23 +44,19 @@ classdef human
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = varargin{2};
                     obj.fatality = PARAM.MORTALITY;
-                    obj.reproduction = PARAM.BR_AGE;
                     obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = varargin{1};
-                    obj.speed = PARAM.H_SPD;
                     obj.pos = varargin{3};
                     obj.immunity = true;
                     obj.infected = false;
-                case 9
+                case 7
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};
                     obj.fatality = varargin{3};
-                    obj.reproduction = varargin{4};
-                    obj.migration = varargin{5};
-                    obj.current_village = varargin{6};
-                    obj.speed = varargin{7};
-                    obj.pos = varargin{8};
-                    obj.immunity = varargin{9};
+                    obj.migration = varargin{4};
+                    obj.current_village = varargin{5};
+                    obj.pos = varargin{6};
+                    obj.immunity = varargin{7};
                     obj.infected = false;
             end
         end

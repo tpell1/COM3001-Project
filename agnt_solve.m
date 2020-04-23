@@ -18,9 +18,6 @@ for cn=1:n
             if cured==1
                 nagent=rslt{3};
                 n_new=n_new+1;
-                if nagent(1)==0
-                   nagent 
-                end
                 agent{n+n_new}=human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
             else
                 res=infect(curr,cn);
@@ -31,7 +28,13 @@ for cn=1:n
                 for i=1:infected
                     n_new=n_new+1;
                     nagent=nagents{i};
-                    agent{n+n_new}=infected_human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+                    if nagent(5)==1
+                        agent{n+n_new}=infected_human_carrier(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+
+                    else
+                        agent{n+n_new}=infected_human(nagent(1),nagent(2),[nagent(3),nagent(4)]);
+                
+                    end
                 end
             end
         end

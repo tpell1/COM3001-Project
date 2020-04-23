@@ -6,10 +6,8 @@ classdef infected_human_carrier
         sociability;
         age;
         fatality;
-        reproduction;
         migration;
         pos;
-        speed;
         current_village;
         infected;
         contagiousness;
@@ -28,10 +26,7 @@ classdef infected_human_carrier
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = 0;
                     obj.fatality = PARAM.MORTALITY;
-                    obj.reproduction = PARAM.BR_AGE;
-                    obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = 1;
-                    obj.speed = PARAM.H_SPD;
                     obj.pos = [];
                     obj.infected = true;
                     obj.contagiousness = PARAM.D_CONTAGIOUS;
@@ -39,24 +34,20 @@ classdef infected_human_carrier
                     obj.sociability = PARAM.SOCIABILITY;
                     obj.age = 0;
                     obj.fatality = PARAM.MORTALITY;
-                    obj.reproduction = PARAM.BR_AGE;
                     obj.migration = PARAM.H_MIGRATE_FREQ;
                     obj.current_village = varargin{1};
-                    obj.speed = PARAM.H_SPD;
                     obj.pos = varargin{2};
                     obj.infected = true;
                     obj.contagiousness = PARAM.D_CONTAGIOUS;
-                case 10
+                case 8
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};
                     obj.fatality = varargin{3};
-                    obj.reproduction = varargin{4};
-                    obj.migration = varargin{5};
-                    obj.current_village = varargin{6};
-                    obj.speed = varargin{7};
-                    obj.pos = varargin{8};
-                    obj.infected = varargin{9};
-                    obj.contagiousness = varargin{10};
+                    obj.migration = varargin{4};
+                    obj.current_village = varargin{5};
+                    obj.pos = varargin{6};
+                    obj.infected = varargin{7};
+                    obj.contagiousness = varargin{8};
             end
             obj.p_of_cure=PARAM.IMMUNE_STRENGTH;
         end

@@ -13,6 +13,7 @@ global PARAM
     PARAM.IMMUNE_STRENGTH=0;    %How likely an infected agent is to be cured (out of 100)
     PARAM.N_OF_VILLAGES=1;       %Number of villages
     PARAM.SOCIABILITY=5;         %Sociability
+    PARAM.P_OF_CARRIER=0.3;     %How likely a newly infected agent will be asymptomatic
     PARAM.D_SOCIAL_F=0.1;        %how much pathogen infects sociability
     PARAM.D_CONTAGIOUS=0.05;      %how contagious pathogen is
     PARAM.H_MIGRATE_FREQ=0.1;   %how often a normal human changes village
