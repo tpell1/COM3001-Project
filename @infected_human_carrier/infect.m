@@ -42,20 +42,21 @@ hb=find(typ(1:length(hvill))==1&rem(1:length(hvill))==0&hvill==cvill);          
 nagents={};
 j=0;
 if ~isempty(hb)
+    rnd=rand(length(hb));
    for i=1:length(hb)
        pi=infectiousness*MESSAGES.sociability(hb(i));
-       if pi>rand
+       %if N_IT > 5
+       %   N_IT; 
+       %end
+       if pi>rnd(i)
           j=j+1;
           infected=infected+1;
           MESSAGES.rem(hb(i))=1;
-          if cvill==0
-              cvill
-          end
-          if rand<PARAM.P_OF_CARRIER
-              carrier=1
+          if rnd(j)<PARAM.P_OF_CARRIER
+              carrier=1;
               IT_STATS.div_c(N_IT+1)=IT_STATS.div_c(N_IT+1)+1;
           else
-              carrier=0
+              carrier=0;
               IT_STATS.div_i(N_IT+1)=IT_STATS.div_i(N_IT+1)+1;
           end
           nagents{j}=[cvill, MESSAGES.age(hb(i)), MESSAGES.pos(hb(i),:),carrier];

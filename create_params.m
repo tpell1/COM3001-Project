@@ -9,7 +9,7 @@ function create_params
 global PARAM
 
     PARAM.D_MORTALITY=30;      %how deadly pathogen is
-    PARAM.MORTALITY=0.002;      %how likely a healthy agent is to die on each iteration
+    PARAM.MORTALITY=0.005;      %how likely a healthy agent is to die on each iteration
     PARAM.IMMUNE_STRENGTH=0;    %How likely an infected agent is to be cured (out of 100)
     PARAM.N_OF_VILLAGES=1;       %Number of villages
     PARAM.SOCIABILITY=5;         %Sociability
