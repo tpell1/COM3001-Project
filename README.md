@@ -4,16 +4,16 @@ In real life, parasites are spread by close proximity, usually social, encounter
 The spread of a virus can be modelled using an ABM. By studying a host’s natural behaviour and replicating this behaviour in a simulation, it is possible to forecast the spread of the virus, and study any emergent behaviours that come of the simulation. 
 
 ### Parameters
-* `D_MORTALITY=30` - How deadly the pathogen is.    
-* `MORTALITY=0.005` - How likely a healthy agent is to die on each iteration. 
-* `IMMUNE_STRENGTH=0` - How likely an infected agent is to be cured (out of 100).  
-* `N_OF_VILLAGES=1` - The number of villages in the model.  
-* `SOCIABILITY=5` - How sociable a healthy agent is. 
-* `P_OF_CARRIER=0.3` - sHow likely a newly infected agent will be asymptomatic. 
-* `D_SOCIAL_F=0.1` - How much being sympotmatic infects sociability. 
-* `D_CONTAGIOUS=0.05` - How contagious the pathogen is. 
-* `H_MIGRATE_FREQ=0.1` - How often a normal human changes village. 
-* `I_MIGRATE_FREQ=0.05` - How often an infected human changes village.  
+* `D_MORTALITY` - How deadly the pathogen is.    
+* `MORTALITY` - How likely a healthy agent is to die on each iteration. 
+* `IMMUNE_STRENGTH` - How likely an infected agent is to be cured (out of 100).  
+* `N_OF_VILLAGES` - The number of villages in the model.  
+* `SOCIABILITY` - How sociable a healthy agent is. 
+* `P_OF_CARRIER` - sHow likely a newly infected agent will be asymptomatic. 
+* `D_SOCIAL_F` - How much being sympotmatic infects sociability. 
+* `D_CONTAGIOUS` - How contagious the pathogen is. 
+* `H_MIGRATE_FREQ` - How often a normal human changes village. 
+* `I_MIGRATE_FREQ` - How often an infected human changes village.  
 
 ## Usage of model
 ### Basic usage
