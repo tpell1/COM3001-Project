@@ -18,14 +18,15 @@ p_of_cure=agt.p_of_cure;
 if p_of_cure>randi(100)
   cured=1
   MESSAGES.rem(cn)=1;
-  nagents=[MESSAGES.village(cn), MESSAGES.age(cn), MESSAGES.pos(cn,:)];
+  nagent=[MESSAGES.village(cn), MESSAGES.age(cn), MESSAGES.pos(cn,:)];
   IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)-1;
   IT_STATS.tot_cured(N_IT+1)=IT_STATS.tot_cured(N_IT+1)+1;
 else
+    nagent=[];
     cured=0;
 end
 
-cellarray = {agt,cured,nagents};
+cellarray = {agt,cured,nagent};
 
 
 

@@ -22,6 +22,7 @@ if p_of_cure>randi(100)
   IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)-1;
   IT_STATS.tot_cured(N_IT+1)=IT_STATS.tot_cured(N_IT+1)+1;
 else
+    nagents=[];
     cured=0;
 end
 
