@@ -31,6 +31,6 @@ It can be set when starting the model by giving an extra argument: `model(size,n
 This determines whether the model outputs images of the experiment results, if on the simulation is much smaller.
 It can be set by giving an extra argument as well as fast mode: `model(size,nh,ni,nc,nsteps,fmode,outImages)`
 ### Repeatability
-To ensure repeatability the model can use the same seed for the random number generator each time. To stop the model from creating a new seed upon start of simulation, you should change the `random_selecton(1)` line in `model.m` to `random_selection(0)`, this will allow the model to use the previous seed and will create a new one.
+To ensure repeatability the model can use the same seed for the random number generator each time. To stop the model from creating a new seed upon start of simulation, you should change the `random_selecton(1)` line in `model.m` to `random_selection(1)`, this will prevent the model from using the previous seed and will create a new one.
 ### Changing the parameters
 The parameters can be found in `create_params.m`, values will affect how the results of the simulation in different ways.
