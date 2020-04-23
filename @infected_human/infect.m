@@ -59,10 +59,13 @@ if ~isempty(hb)
           j=j+1;
           infected=infected+1;
           MESSAGES.rem(hb(i))=1;
-          if rand<PARAM.P_OF_CARRIER
-          carrier=1
+          rnd=rand(1);
+          if rnd<PARAM.P_OF_CARRIER
+              carrier=1
+              IT_STATS.div_c(N_IT+1)=IT_STATS.div_c(N_IT+1)+1;
           else
-              carrier=0;
+              carrier=0
+              IT_STATS.div_i(N_IT+1)=IT_STATS.div_i(N_IT+1)+1;
           end
           nagents{j}=[cvill, MESSAGES.age(hb(i)), MESSAGES.pos(hb(i),:),carrier];
        end
@@ -70,7 +73,6 @@ if ~isempty(hb)
    end
 end
 IT_STATS.infected(N_IT+1)=IT_STATS.infected(N_IT+1)+infected;
-IT_STATS.div_i(N_IT+1)=IT_STATS.div_i(N_IT+1)+infected;
 cellarray = {agt,infected,nagents};
 
 

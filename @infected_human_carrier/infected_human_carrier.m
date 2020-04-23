@@ -39,6 +39,15 @@ classdef infected_human_carrier
                     obj.pos = varargin{2};
                     obj.infected = true;
                     obj.contagiousness = PARAM.D_CONTAGIOUS;
+                case 3
+                    obj.sociability = PARAM.SOCIABILITY;
+                    obj.age = varargin{2};
+                    obj.fatality = PARAM.MORTALITY;
+                    obj.migration = PARAM.H_MIGRATE_FREQ;
+                    obj.current_village = varargin{1};
+                    obj.pos = varargin{3};
+                    obj.infected = true;
+                    obj.contagiousness = PARAM.D_CONTAGIOUS;
                 case 8
                     obj.sociability = varargin{1};
                     obj.age = varargin{2};
