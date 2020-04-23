@@ -1,17 +1,15 @@
 function model(size,nh,ni,nc,nsteps,fmode,outImages)
 
-%ECO_LAB  agent-based predator-prey model, developed for
-%demonstration purposes only for University of Sheffield module
-%COM3001/6006/6009
+%Adapted from ECOLAB by Dawn Walker
 
-%AUTHOR Dawn Walker d.c.walker@sheffield.ac.uk
-%Created April 2008
+%This model simulates the spread of a disease between villages.
 
-%ecolab(size,nr,nf,nsteps)
+%model(size,nh,ni,nc,nsteps)
 %size = size of model environmnet in km (sugested value for plotting
 %purposes =50)
-%nr - initial number of rabbit agents
-%nf - initial number of fox agents
+%nh - initial number of healthy human agents
+%ni - initial number of infected human agents
+%nc - initial number of asymptomatic infected human agents
 %nsteps - number of iterations required
 
 %definition of global variables:
@@ -26,6 +24,10 @@ function model(size,nh,ni,nc,nsteps,fmode,outImages)
     close all
 
     global N_IT IT_STATS ENV_DATA CONTROL_DATA
+    
+    % optional arguments
+    % fast mode - plots data more efficiently
+    % outImages - Output images of data
     if nargin == 5
         fmode=true;
         outImages=false;

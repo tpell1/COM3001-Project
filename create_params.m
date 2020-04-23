@@ -1,7 +1,8 @@
 function create_params
 
-%set up breeding, migration and starvation threshold parameters. These
-%are all completely made up!
+%Set up disease and agent parameters, controls how infectious and fatal a
+%pathogen can be and also how the agents behave depending on whether they
+%have been infected.
 
 %PARAM - structure containing values of all parameters governing agent
 %behaviour for the current simulation

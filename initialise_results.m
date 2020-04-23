@@ -8,16 +8,16 @@ function initialise_results(nh,ni,nc,nsteps)
 %ENV_DATA - data structure representing the environment 
  
  IT_STATS=struct('div_i',[zeros(1,nsteps+1);],...            %no. of infections per iteration
-                'div_c',[zeros(1,nsteps+1)],...
+                'div_c',[zeros(1,nsteps+1)],...             %no. of new carriers per iteration
                 'died_h',[zeros(1,nsteps+1)],...			%no. agents dying per iteration
-                'died_i',[zeros(1,nsteps+1)],...
-                'died_c',[zeros(1,nsteps+1)],....
-                'infected',[zeros(1,nsteps+1)],...              %no. rabbits eaten per iteration
-                'mig',[zeros(1,nsteps+1)],...                %no. agents migrating per iteration
+                'died_i',[zeros(1,nsteps+1)],...            %no. infected agents dying per iteration
+                'died_c',[zeros(1,nsteps+1)],....           %no. carrier agents dying per iteration 
+                'infected',[zeros(1,nsteps+1)],...          %no. cumulative infections
+                'mig',[zeros(1,nsteps+1)],...               %no. agents migrating per iteration
                 'tot',[zeros(1,nsteps+1)],...				%total no. agents in model per iteration
                 'tot_h',[zeros(1,nsteps+1)],...             % total no. healthy humans
                 'tot_i',[zeros(1,nsteps+1)],...             % total no. infected humans
-                'tot_c',[zeros(1,nsteps+1)],...               % total no. carriers
+                'tot_c',[zeros(1,nsteps+1)],...             % total no. carriers
                 'tot_cured',[zeros(1,nsteps+1)]);
  IT_STATS.tot(1)=nh+ni+nc;
  IT_STATS.tot_h(1)=nh;

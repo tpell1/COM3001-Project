@@ -5,10 +5,8 @@ function plot_results(agent,nsteps,fmode,outImages)
     %plot_results(agent,nr,nf)
     %%%%%%%%%%%
     %agent - current list of agent structures
-    %nr -  no. rabbits
-    %nf -  no. rabbits
-
-    % Modified by D Walker 3/4/08
+    
+    % Copied from ecolab by Dawn Walker
 
     global N_IT IT_STATS ENV_DATA MESSAGES CONTROL_DATA
     %declare variables that can be seen by all functions
@@ -76,7 +74,9 @@ function plot_results(agent,nsteps,fmode,outImages)
         [X,Y]=meshgrid(v);
         Z=floor(10*ones(bm,bm));
         H=zeros(bm,bm);
-        hs=surf(Y,X,H,Z);               %plot food distribution on plain background
+        %Could add percentage of infected per village?
+        
+        hs=surf(Y,X,H,Z);               
         cm=colormap('gray');
         icm=flipud(cm);
         colormap(icm);

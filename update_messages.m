@@ -3,6 +3,8 @@ function [nagent,nn]=update_messages(agent,prev_n,temp_n)
 %copy all surviving and new agents in to a new agent list - dead agents
 %will be empty structures
 
+%Adapted from ecolab's update_messages.m by Dawn Walker
+
 %agent - list of existing agents, including those that have died in the
 %current iteration
 %prev_n - previous number of agents at the start of this iteration
@@ -19,8 +21,13 @@ function [nagent,nn]=update_messages(agent,prev_n,temp_n)
    %    MESSAGES.atype - n x 1 array listing the type of each agent in the model
    %    (1=rabbit, 2-fox, 3=dead agent)
    %    MESSAGES.pos - list of every agent position in [x y]
-   %    MESSAGE.dead - n x1 array containing ones for agents that have died
+   %    MESSAGES.dead - n x1 array containing ones for agents that have died
    %    in the current iteration
+   %    MESSAGES.rem - n x1 array containing ones for agents that have been
+   %    cured or infected in current iteration
+   %    MESSAGES.village - list of every agents village
+   %    MESSAGES.sociability - list of every agents sociability
+   %    MESSAGES.age - list of every agents age
 %ENV_DATA - is a data structure containing information about the model
    %environment
 

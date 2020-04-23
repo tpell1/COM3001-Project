@@ -1,30 +1,19 @@
 function cellarray=infect(agt,cn)
 
-%eating function for class FOX
-%agt=fox object
+%infect function for infected agents
+%agt - current agent
 %cn - current agent number
-%infected = 1 if infects new agent
-%nagnt - new agent object (to replace healthy human)
+%cellarray = {agt, infected, nagents}
+%agt - current agent
+%infected - how many agents were infected
+%nagents - cell array of new agent details (agnt_solve uses these to create
+%new objects)
 
 %SUMMARY OF INFECTON RULE
 %Infected gets all current healthy humans in village
 %Probability of each healthy human becoming infected
 % = contagiousness*sociability + 2*healthy_human_sociability
 %If product > rand, healthy human is infected
-
-
-%GLOBAL VARIABLES
-%N_IT is current iteration number
-%IT_STATS is data structure containing statistics on model at each
-%iteration (no. agents etc)
-%MESSAGES is a data structure containing information that agents need to
-%broadcast to each other
-   %    MESSAGES.atype - n x 1 array listing the type of each agent in the model
-   %    (1=rabbit, 2-fox, 3=dead agent)
-   %    MESSAGES.pos - list of every agent position in [x y]
-   %    MESSAGE.dead - n x1 array containing ones for agents that have died
-   %    in the current iteration
-   
 
 global  PARAM IT_STATS N_IT MESSAGES
    
@@ -45,9 +34,6 @@ if ~isempty(hb)
     rnd=rand(length(hb));
    for i=1:length(hb)
        pi=infectiousness*MESSAGES.sociability(hb(i));
-       %if N_IT > 5
-       %   N_IT; 
-       %end
        if pi>rnd(i)
           j=j+1;
           infected=infected+1;

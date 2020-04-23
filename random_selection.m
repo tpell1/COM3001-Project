@@ -1,4 +1,5 @@
 function random_selection(r)
+%Copied from ecolab
 
 %if r=1, reset random seed for completely random simulation
 %if r=0  load old random seeds so next simulation should be identical to
